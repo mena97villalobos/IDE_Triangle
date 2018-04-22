@@ -56,37 +56,40 @@ public class TreeVisitor implements Visitor {
 
     @Override
     public Object visitDoWhileCommand(DoWhileCommand doWhileCommand, Object o) {
-        return null;
+        return createBinary("DoWhile Command",doWhileCommand.C,doWhileCommand.E);
     }
 
     @Override
     public Object visitDoUntilCommand(DoUntilCommand doUntilCommand, Object o) {
-        return null;
+        return createBinary("DoUntil Command", doUntilCommand.C,doUntilCommand.E);
+
     }
 
     @Override
     public Object visitUntilCommand(UntilCommand untilCommand, Object o) {
-        return null;
+
+        return createBinary("DoUntil Command", untilCommand.E,untilCommand.C);
+
     }
 
     @Override
     public Object visitElsifCommand(ElsifCommand elsifCommand, Object o) {
-        return null;
-    }
+        return createTernary("ElsifCommand", elsifCommand.E,elsifCommand.C1,elsifCommand.C2);
+    } // TODO REVISAR QUE SIRVE
 
     @Override
     public Object visitForCommand(ForCommand forCommand, Object o) {
-        return null;
+        return createQuaternary("ForCommand",forCommand.I,forCommand.E1,forCommand.E2,forCommand.C);
     }
 
     @Override
     public Object visitVarInitialized(VarInitialized varInitialized, Object o) {
-        return null;
+        return createBinary("VarInitialized",varInitialized.I,varInitialized.E);
     }
 
     @Override
     public Object visitArrayStatic(ArrayTypeDenoterStatic arrayTypeDenoterStatic, Object o) {
-        return null;
+        return createTernary("ArrayStatic",arrayTypeDenoterStatic.IL,arrayTypeDenoterStatic.IL2,arrayTypeDenoterStatic.T);
     }
     // </editor-fold>
     
