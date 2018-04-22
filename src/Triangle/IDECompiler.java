@@ -49,7 +49,6 @@ public class IDECompiler {
         report = new IDEReporter();
         Parser parser = new Parser(scanner, report);
         boolean success = false;
-        
         rootAST = parser.parseProgram();
         if (false){ //) report.numErrors == 0) {  Cambiado para que no se llame al analisis contextual y generador de codigo
             System.out.println("Contextual Analysis ...");
