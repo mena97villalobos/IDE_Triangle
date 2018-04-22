@@ -70,45 +70,64 @@ public class TableVisitor implements Visitor {
       
       return(null);
   }
-  
-  public Object visitWhileCommand(WhileCommand ast, Object o) { 
+
+    @Override
+    public Object visitWhileCommand(WhileCommand ast, Object o) {
+        ast.E.visit(this, null);
+        ast.C.visit(this, null);
+        return null;
+    }
+
+    @Override
+    public Object visitDoWhileCommand(DoWhileCommand ast, Object o) {
       ast.E.visit(this, null);
       ast.C.visit(this, null);
       return(null);
   }
 
     @Override
-    public Object visitDoWhileCommand(DoWhileCommand doWhileCommand, Object o) {
+    public Object visitDoUntilCommand(DoUntilCommand ast, Object o) {
+        ast.E.visit(this, null);
+        ast.C.visit(this, null);
         return null;
     }
 
     @Override
-    public Object visitDoUntilCommand(DoUntilCommand doUntilCommand, Object o) {
+    public Object visitUntilCommand(UntilCommand ast, Object o) {
+        ast.E.visit(this, null);
+        ast.C.visit(this, null);
         return null;
     }
 
     @Override
-    public Object visitUntilCommand(UntilCommand untilCommand, Object o) {
+    public Object visitElsifCommand(ElsifCommand ast, Object o) {
+        ast.E.visit(this, null);
+        ast.C1.visit(this, null);
+        ast.C2.visit(this, null);
         return null;
     }
 
     @Override
-    public Object visitElsifCommand(ElsifCommand elsifCommand, Object o) {
+    public Object visitForCommand(ForCommand ast, Object o) {
+        ast.I.visit(this, null);
+        ast.E1.visit(this, null);
+        ast.E2.visit(this, null);
+        ast.C.visit(this, null);
         return null;
     }
 
     @Override
-    public Object visitForCommand(ForCommand forCommand, Object o) {
+    public Object visitVarInitialized(VarInitialized ast, Object o) {
+        ast.I.visit(this, null);
+        ast.E.visit(this, null);
         return null;
     }
 
     @Override
-    public Object visitVarInitialized(VarInitialized varInitialized, Object o) {
-        return null;
-    }
-
-    @Override
-    public Object visitArrayStatic(ArrayTypeDenoterStatic arrayTypeDenoterStatic, Object o) {
+    public Object visitArrayStatic(ArrayTypeDenoterStatic ast, Object o) {
+        ast.IL.visit(this, null);
+        ast.IL2.visit(this, null);
+        ast.T.visit(this, null);
         return null;
     }
     // </editor-fold>
