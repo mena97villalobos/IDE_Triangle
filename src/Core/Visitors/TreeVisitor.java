@@ -51,7 +51,7 @@ public class TreeVisitor implements Visitor {
     }
     
     public Object visitWhileCommand(WhileCommand ast, Object obj) {
-        return(createBinary("While Command", ast.E, ast.C));
+        return(createBinary("While Loop Command", ast.E, ast.C));
     }
 
     @Override
