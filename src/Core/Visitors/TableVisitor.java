@@ -130,6 +130,26 @@ public class TableVisitor implements Visitor {
         ast.T.visit(this, null);
         return null;
     }
+
+    @Override
+    public Object visitProcFuncs(ProcFuncs ast, Object o) {
+        ast.D1.visit(this, null);
+        ast.D2.visit(this, null);
+        return null;
+    }
+
+    @Override
+    public Object visitPrivateDeclaration(PrivateDeclaration ast, Object o) {
+        ast.D1.visit(this, null);
+        ast.D2.visit(this, null);
+        return null;
+    }
+
+    @Override
+    public Object visitRecDeclaration(RecDeclaration ast, Object o) {
+        ast.D.visit(this, null);
+        return null;
+    }
     // </editor-fold>
 
   // <editor-fold defaultstate="collapsed" desc=" Expressions ">

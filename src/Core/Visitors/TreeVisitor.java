@@ -75,7 +75,7 @@ public class TreeVisitor implements Visitor {
     @Override
     public Object visitElsifCommand(ElsifCommand elsifCommand, Object o) {
         return createTernary("ElsifCommand", elsifCommand.E,elsifCommand.C1,elsifCommand.C2);
-    } // TODO REVISAR QUE SIRVE
+    }
 
     @Override
     public Object visitForCommand(ForCommand forCommand, Object o) {
@@ -90,6 +90,21 @@ public class TreeVisitor implements Visitor {
     @Override
     public Object visitArrayStatic(ArrayTypeDenoterStatic arrayTypeDenoterStatic, Object o) {
         return createTernary("ArrayStatic",arrayTypeDenoterStatic.IL,arrayTypeDenoterStatic.IL2,arrayTypeDenoterStatic.T);
+    }
+
+    @Override
+    public Object visitProcFuncs(ProcFuncs procFuncs, Object o) {
+        return createBinary("ProcFuncsDeclaration", procFuncs.D1, procFuncs.D2);
+    }
+
+    @Override
+    public Object visitPrivateDeclaration(PrivateDeclaration privateDeclaration, Object o) {
+        return createBinary("PrivateDeclaration", privateDeclaration.D1, privateDeclaration.D2);
+    }
+
+    @Override
+    public Object visitRecDeclaration(RecDeclaration recDeclaration, Object o) {
+        return createUnary("RecDeclaration", recDeclaration.D);
     }
     // </editor-fold>
     
