@@ -54,7 +54,7 @@ public class IDECompiler {
             System.out.println("Contextual Analysis ...");
             Checker checker = new Checker(report);
             checker.check(rootAST);
-            /*if (report.numErrors == 0) {
+            if (report.numErrors == 0) {
                 System.out.println("Code Generation ...");
                 Encoder encoder = new Encoder(report);
                 encoder.encodeRun(rootAST, false);
@@ -63,7 +63,7 @@ public class IDECompiler {
                     encoder.saveObjectProgram(sourceName.replace(".tri", ".tam"));
                     success = true;
                 }
-            }*/
+            }
         }
 
         if (true)//success) cambiado a true proyecto 1
